@@ -12,6 +12,7 @@
 		AD20971A1E70ADD300F480AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2097181E70ADD300F480AB /* Main.storyboard */; };
 		AD20971C1E70ADD300F480AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD20971B1E70ADD300F480AB /* Assets.xcassets */; };
 		AD20971F1E70ADD300F480AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD20971D1E70ADD300F480AB /* LaunchScreen.storyboard */; };
+		AD2097271E70AE2D00F480AB /* RandomQuestionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2097261E70AE2D00F480AB /* RandomQuestionPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AD20971B1E70ADD300F480AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD20971E1E70ADD300F480AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD2097201E70ADD300F480AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD2097261E70AE2D00F480AB /* RandomQuestionPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomQuestionPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				AD2097141E70ADD300F480AB /* AppDelegate.swift */,
 				AD2097161E70ADD300F480AB /* ViewController.swift */,
+				AD2097261E70AE2D00F480AB /* RandomQuestionPicker.swift */,
 				AD2097181E70ADD300F480AB /* Main.storyboard */,
 				AD20971B1E70ADD300F480AB /* Assets.xcassets */,
 				AD20971D1E70ADD300F480AB /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD2097171E70ADD300F480AB /* ViewController.swift in Sources */,
+				AD2097271E70AE2D00F480AB /* RandomQuestionPicker.swift in Sources */,
 				AD2097151E70ADD300F480AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

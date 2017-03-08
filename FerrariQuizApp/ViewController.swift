@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import GameKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var questionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
