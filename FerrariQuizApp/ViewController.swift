@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     
 //print new question to the questionLabel
     func printQuestion() {
-        questionLabel.text = randomQuestionPicker.randomQuestion()
+        questionLabel.text = randomQuestionPicker.randomQuestion(answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)
     }
 }
 
