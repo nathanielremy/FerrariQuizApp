@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="height" constant="90" id="hio-dh-fGN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                <color key="textColor" red="1" green="0.93301083350000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfb-UB-zav">
@@ -128,6 +128,15 @@
                                     <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qSy-HF-Hce"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcQ-6E-IJg">
+                                <rect key="frame" x="40" y="236" width="38.666666666666671" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="wcy-bu-yh2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="1" green="0.1861607143" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -135,9 +144,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9h2-MO-sJn" secondAttribute="trailing" constant="20" id="0pM-oo-s7R"/>
                             <constraint firstItem="M7d-BL-6lX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="2Cs-SL-UVZ"/>
                             <constraint firstItem="9h2-MO-sJn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="8h5-K5-BTI"/>
+                            <constraint firstItem="9h2-MO-sJn" firstAttribute="top" secondItem="tcQ-6E-IJg" secondAttribute="bottom" constant="25" id="AJh-1O-M3H"/>
                             <constraint firstItem="9h8-1K-BU0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ALG-Gr-kYp"/>
                             <constraint firstItem="M7d-BL-6lX" firstAttribute="top" secondItem="pby-tM-ycK" secondAttribute="bottom" constant="20" id="Akv-cF-rbX"/>
                             <constraint firstItem="x6d-CQ-ipO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="CU2-M4-xmP"/>
+                            <constraint firstItem="tcQ-6E-IJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="EQW-ET-7qd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rfb-UB-zav" secondAttribute="trailing" constant="20" id="GMj-BN-IZX"/>
                             <constraint firstItem="rfb-UB-zav" firstAttribute="top" secondItem="9h8-1K-BU0" secondAttribute="bottom" constant="10" id="IXe-VM-dYW"/>
                             <constraint firstItem="ydx-7A-YpO" firstAttribute="top" secondItem="M7d-BL-6lX" secondAttribute="bottom" constant="20" id="L3B-LN-HDA"/>
@@ -166,6 +177,7 @@
                         <outlet property="proceedQuestions" destination="rfb-UB-zav" id="6yR-6I-QB6"/>
                         <outlet property="questionLabel" destination="x6d-CQ-ipO" id="6mf-qW-MeA"/>
                         <outlet property="rightOrWrong" destination="9h2-MO-sJn" id="GzQ-oI-KkG"/>
+                        <outlet property="timer" destination="tcQ-6E-IJg" id="VPg-Xb-nO0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

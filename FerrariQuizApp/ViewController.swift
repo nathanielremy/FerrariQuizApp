@@ -19,6 +19,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var proceedQuestions: UIButton!
     @IBOutlet weak var rightOrWrong: UILabel!
     @IBOutlet weak var playAgain: UIButton!
+    @IBOutlet weak var timer: UILabel!
+    
+    var time = 15.0
+    var currentTime = Timer()
     
     
     
@@ -58,23 +62,36 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func startTimer() {
+        currentTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
+    }
     
-    @IBAction func verifyanswer(_ sender: UIButton) {
+    func counter() {
+        time -= 1.0
+        timer.text = "\(time)"
+        
+        if (time == 0.0) {
+            verifyanswer(nil)
+        }
+    }
+    
+    
+    @IBAction func verifyanswer(_ sender: UIButton?) {
         answeredQuestions += 1
         proceedQuestions.isHidden = false
+        currentTime.invalidate()
+        
+        let answerButtons = [answer1, answer2, answer3, answer4]
         
         
         if (sender == answer1 || sender == answer2 || sender == answer3 || sender == answer4) {
-            if (sender.currentTitle == questions[0]["rightAnswer"]) || (sender.currentTitle == questions[1]["rightAnswer"]) || (sender.currentTitle == questions[2]["rightAnswer"]) || (sender.currentTitle == questions[3]["rightAnswer"]) || (sender.currentTitle == questions[4]["rightAnswer"]) {
+            if (sender?.currentTitle == questions[0]["rightAnswer"]) || (sender?.currentTitle == questions[1]["rightAnswer"]) || (sender?.currentTitle == questions[2]["rightAnswer"]) || (sender?.currentTitle == questions[3]["rightAnswer"]) || (sender?.currentTitle == questions[4]["rightAnswer"]) {
                 correctAnswers += 1
                 rightOrWrong.textColor = UIColor(colorLiteralRed: 0, green: 255/255, blue: 0, alpha: 1.0)
                 rightOrWrong.text = "Correct answer"
                 rightOrWrong.isHidden = false
             
-            
-        } else {
-                
-                let answerButtons = [answer1, answer2, answer3, answer4]
+            } else {
                 
                 rightOrWrong.textColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 1)
                 rightOrWrong.text = "Oops! Incorrect answer..."
@@ -91,7 +108,34 @@ class ViewController: UIViewController {
                 }
             }
         }
-    }
+//            } else if (sender == nil) {
+//                rightOrWrong.text = "Times up"
+//                rightOrWrong.textColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 1)
+//                
+//                for answer in answerButtons {
+//                    answer?.isHidden = true
+//                }
+//                
+//            }
+    
+            else {
+                
+                rightOrWrong.textColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 1)
+                rightOrWrong.text = "Oops! Incorrect answer..."
+                rightOrWrong.isHidden = false
+                
+                // Buttons with the correct answer turn green
+                
+                for answer in answerButtons {
+                    
+                    if (answer?.currentTitle == questions[0]["rightAnswer"]) || (answer?.currentTitle == questions[1]["rightAnswer"]) || (answer?.currentTitle == questions[2]["rightAnswer"]) || (answer?.currentTitle == questions[3]["rightAnswer"]) || (answer?.currentTitle == questions[4]["rightAnswer"]) {
+                        
+                        answer?.backgroundColor = UIColor.green
+                    }
+                    }
+                }
+            }
+    
     
     func final() {
         answer1.isHidden = true
@@ -100,6 +144,7 @@ class ViewController: UIViewController {
         answer4.isHidden = true
         rightOrWrong.isHidden = true
         proceedQuestions.isHidden = true
+        timer.isHidden = true
         
         questionLabel.text = "You got \(correctAnswers) out of \(totalQuestions) answers correct!!"
         
@@ -108,7 +153,6 @@ class ViewController: UIViewController {
     
         
     @IBAction func playAgain(_ sender: Any) {
-        
         correctAnswers = 0
         answeredQuestions = 0
         
@@ -140,6 +184,9 @@ class ViewController: UIViewController {
     
 //print new question to the questionLabel
     func printQuestion() {
+        timer.isHidden = false
+        time = 16.0
+        startTimer()
         
         playAgain.isHidden = true
         answer1.isHidden = false
