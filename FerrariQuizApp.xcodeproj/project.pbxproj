@@ -304,6 +304,7 @@
 				AD2097251E70ADD300F480AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

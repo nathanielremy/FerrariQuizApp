@@ -18,10 +18,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var answer4: UIButton!
     @IBOutlet weak var proceedQuestions: UIButton!
     @IBOutlet weak var rightOrWrong: UILabel!
+    @IBOutlet weak var playAgain: UIButton!
+    
+    
+    
     
     var correctAnswers: Int = 0
     var answeredQuestions: Int = 0
-    let totalQuestions = 5
+    let totalQuestions = questions.count
     
     
     var randomQuestionPicker = RandomQuestionPicker()
@@ -37,6 +41,9 @@ class ViewController: UIViewController {
         answer3.layer.cornerRadius = 10
         answer4.layer.cornerRadius = 10
         proceedQuestions.layer.cornerRadius = 10
+        playAgain.layer.cornerRadius = 10
+        
+        playAgain.isHidden = true
         
         proceedQuestions.isHidden = true
         
@@ -56,14 +63,16 @@ class ViewController: UIViewController {
         answeredQuestions += 1
         proceedQuestions.isHidden = false
         
+        
         if (sender == answer1 || sender == answer2 || sender == answer3 || sender == answer4) {
             if (sender.currentTitle == questions[0]["rightAnswer"]) || (sender.currentTitle == questions[1]["rightAnswer"]) || (sender.currentTitle == questions[2]["rightAnswer"]) || (sender.currentTitle == questions[3]["rightAnswer"]) || (sender.currentTitle == questions[4]["rightAnswer"]) {
+                correctAnswers += 1
                 rightOrWrong.textColor = UIColor(colorLiteralRed: 0, green: 255/255, blue: 0, alpha: 1.0)
                 rightOrWrong.text = "Correct answer"
                 rightOrWrong.isHidden = false
             
             
-            } else {
+        } else {
                 
                 let answerButtons = [answer1, answer2, answer3, answer4]
                 
@@ -84,25 +93,62 @@ class ViewController: UIViewController {
         }
     }
     
+    func final() {
+        answer1.isHidden = true
+        answer2.isHidden = true
+        answer3.isHidden = true
+        answer4.isHidden = true
+        rightOrWrong.isHidden = true
+        proceedQuestions.isHidden = true
+        
+        questionLabel.text = "You got \(correctAnswers) out of \(totalQuestions) answers correct!!"
+        
+        playAgain.isHidden = false
+    }
+    
+        
+    @IBAction func playAgain(_ sender: Any) {
+        
+        correctAnswers = 0
+        answeredQuestions = 0
         
         
-        
-        
+        while (usedIndex.count != 0) {
+            usedIndex.remove(at: 0)
+        }
 
+        printQuestion()
+        }
+
+        
+    
 //When nextQuestion button is tapped
     @IBAction func nextQuestion() {
+        
         
         answer1.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 0.6)
         answer2.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 0.6)
         answer3.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 0.6)
         answer4.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 0.6)
         
+        if (answeredQuestions == totalQuestions) {
+            final()
+        } else {
         printQuestion()
+        }
     }
     
 //print new question to the questionLabel
     func printQuestion() {
+        
+        playAgain.isHidden = true
+        answer1.isHidden = false
+        answer2.isHidden = false
+        answer3.isHidden = false
+        answer4.isHidden = false
+        
     randomQuestionPicker.randomQuestion(questionLabel: questionLabel, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)
+        proceedQuestions.setTitle("Next Question", for: .normal)
         proceedQuestions.isHidden = true
         rightOrWrong.isHidden = true
     }
