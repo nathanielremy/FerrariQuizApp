@@ -13,6 +13,8 @@
 		AD20971C1E70ADD300F480AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD20971B1E70ADD300F480AB /* Assets.xcassets */; };
 		AD20971F1E70ADD300F480AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD20971D1E70ADD300F480AB /* LaunchScreen.storyboard */; };
 		AD2097271E70AE2D00F480AB /* RandomQuestionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2097261E70AE2D00F480AB /* RandomQuestionPicker.swift */; };
+		ADD4B91A1E74696100D462EC /* applause7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADD4B9191E74696100D462EC /* applause7.mp3 */; };
+		ADD4B91C1E746BB100D462EC /* crowdboo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADD4B91B1E746BB100D462EC /* crowdboo.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		AD20971E1E70ADD300F480AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD2097201E70ADD300F480AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD2097261E70AE2D00F480AB /* RandomQuestionPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomQuestionPicker.swift; sourceTree = "<group>"; };
+		ADD4B9191E74696100D462EC /* applause7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = applause7.mp3; sourceTree = "<group>"; };
+		ADD4B91B1E746BB100D462EC /* crowdboo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crowdboo.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				AD20971B1E70ADD300F480AB /* Assets.xcassets */,
 				AD20971D1E70ADD300F480AB /* LaunchScreen.storyboard */,
 				AD2097201E70ADD300F480AB /* Info.plist */,
+				ADD4B9191E74696100D462EC /* applause7.mp3 */,
+				ADD4B91B1E746BB100D462EC /* crowdboo.mp3 */,
 			);
 			path = FerrariQuizApp;
 			sourceTree = "<group>";
@@ -127,7 +133,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD4B91C1E746BB100D462EC /* crowdboo.mp3 in Resources */,
 				AD20971F1E70ADD300F480AB /* LaunchScreen.storyboard in Resources */,
+				ADD4B91A1E74696100D462EC /* applause7.mp3 in Resources */,
 				AD20971C1E70ADD300F480AB /* Assets.xcassets in Resources */,
 				AD20971A1E70ADD300F480AB /* Main.storyboard in Resources */,
 			);

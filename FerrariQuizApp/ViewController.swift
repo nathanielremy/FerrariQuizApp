@@ -8,6 +8,7 @@
 
 import UIKit
 import GameKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -24,17 +25,15 @@ class ViewController: UIViewController {
     var time = 15.0
     var currentTime = Timer()
     
-    
-    
-    
     var correctAnswers: Int = 0
     var answeredQuestions: Int = 0
     let totalQuestions = questions.count
     
-    
     var randomQuestionPicker = RandomQuestionPicker()
     
-
+    var correctSound = AVAudioPlayer()
+    var incorrectSound = AVAudioPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -54,6 +53,8 @@ class ViewController: UIViewController {
         rightOrWrong.isHidden = true
         
         printQuestion()
+        
+        prepareSound()
         
     }
 
@@ -86,6 +87,9 @@ class ViewController: UIViewController {
         
         if (sender == answer1 || sender == answer2 || sender == answer3 || sender == answer4) {
             if (sender?.currentTitle == questions[0]["rightAnswer"]) || (sender?.currentTitle == questions[1]["rightAnswer"]) || (sender?.currentTitle == questions[2]["rightAnswer"]) || (sender?.currentTitle == questions[3]["rightAnswer"]) || (sender?.currentTitle == questions[4]["rightAnswer"]) {
+                
+                correctSound.play()
+                
                 correctAnswers += 1
                 rightOrWrong.textColor = UIColor(colorLiteralRed: 0, green: 255/255, blue: 0, alpha: 1.0)
                 rightOrWrong.text = "Correct answer"
@@ -93,6 +97,7 @@ class ViewController: UIViewController {
             
             } else {
                 
+                incorrectSound.play()
                 rightOrWrong.textColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 1)
                 rightOrWrong.text = "Oops! Incorrect answer..."
                 rightOrWrong.isHidden = false
@@ -106,35 +111,25 @@ class ViewController: UIViewController {
                         answer?.backgroundColor = UIColor.green
                     }
                 }
+            }
+        } else {
+            
+            incorrectSound.play()
+            rightOrWrong.textColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 1)
+            rightOrWrong.text = "Oops! Incorrect answer..."
+            rightOrWrong.isHidden = false
+                
+            // Buttons with the correct answer turn green
+                
+            for answer in answerButtons {
+                    
+            if (answer?.currentTitle == questions[0]["rightAnswer"]) || (answer?.currentTitle == questions[1]["rightAnswer"]) || (answer?.currentTitle == questions[2]["rightAnswer"]) || (answer?.currentTitle == questions[3]["rightAnswer"]) || (answer?.currentTitle == questions[4]["rightAnswer"]) {
+                        
+                answer?.backgroundColor = UIColor.green
+            }
             }
         }
-//            } else if (sender == nil) {
-//                rightOrWrong.text = "Times up"
-//                rightOrWrong.textColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 1)
-//                
-//                for answer in answerButtons {
-//                    answer?.isHidden = true
-//                }
-//                
-//            }
-    
-            else {
-                
-                rightOrWrong.textColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 1)
-                rightOrWrong.text = "Oops! Incorrect answer..."
-                rightOrWrong.isHidden = false
-                
-                // Buttons with the correct answer turn green
-                
-                for answer in answerButtons {
-                    
-                    if (answer?.currentTitle == questions[0]["rightAnswer"]) || (answer?.currentTitle == questions[1]["rightAnswer"]) || (answer?.currentTitle == questions[2]["rightAnswer"]) || (answer?.currentTitle == questions[3]["rightAnswer"]) || (answer?.currentTitle == questions[4]["rightAnswer"]) {
-                        
-                        answer?.backgroundColor = UIColor.green
-                    }
-                    }
-                }
-            }
+    }
     
     
     func final() {
@@ -199,11 +194,27 @@ class ViewController: UIViewController {
         proceedQuestions.isHidden = true
         rightOrWrong.isHidden = true
     }
+    
+    
+    func prepareSound() {
+        do {
+            correctSound = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "applause7", ofType: "mp3")!))
+            incorrectSound = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "crowdboo", ofType: "mp3")!))
+            
+            
+            correctSound.prepareToPlay()
+            incorrectSound.prepareToPlay()
+        }
+        catch {
+            print(error)
+        }
+    }
+    
 }
 
+//var incorrectSound = AVAudioPlayer()
 
-
-
+//var correctSound = AVAudioPlayer()
 
 
 

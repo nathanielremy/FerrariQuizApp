@@ -23,6 +23,7 @@ var usedIndex: [Int] = []
 
 
 class RandomQuestionPicker {
+
     
     func checkRepeat() -> Int {
         
