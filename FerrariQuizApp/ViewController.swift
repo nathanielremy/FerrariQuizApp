@@ -164,6 +164,11 @@ class ViewController: UIViewController {
 //When nextQuestion button is tapped
     @IBAction func nextQuestion() {
         
+        correctSound.stop()
+        correctSound.currentTime = 0
+        incorrectSound.stop()
+        incorrectSound.currentTime = 0
+        
         
         answer1.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 0.6)
         answer2.backgroundColor = UIColor(colorLiteralRed: 255/255, green: 0, blue: 0, alpha: 0.6)
@@ -206,7 +211,7 @@ class ViewController: UIViewController {
             incorrectSound.prepareToPlay()
         }
         catch {
-            print(error)
+            
         }
     }
     
