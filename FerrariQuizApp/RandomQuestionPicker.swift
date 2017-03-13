@@ -10,20 +10,16 @@ import Foundation
 import UIKit
 import GameKit
 
-var questions: [[String: String]] = [
-    ["Q": "In Ferrari F12 TDF, What does the 'TDF' stand for?", "rightAnswer": "Tour de France", "false1": "Secret Ferrari abbreviation", "false2": "Total Demon Features"],
-    ["Q": "The Ferrari 458's exhaust system was designed after what car?", "rightAnswer": "Ferrari F40", "false1": "Ferrari F430", "false2": "Ferrari F50", "false3": "Ferrari FF"],
-    ["Q": "In Ferrari 458, what does the '458' stand for?", "rightAnswer": "4.5 Litre V8", "false1": "458 horse power", "false2": "458 cars manufactured", "false3": "$458, 000"],
-    ["Q": "What hyper car did Ferrari release in 2016?", "rightAnswer": "LaFerrari Aperta", "false1": "LaFerrari", "false2": "F12 TDF", "false3": "GTC4 Lusso"],
-    ["Q": "What car was named after Ferrari's founder?", "rightAnswer": "Ferrari Enzo", "false1": "575 Maranello", "false2": "Scuderia"]
-]
 
 var usedIndex: [Int] = []
 
 
-
-class RandomQuestionPicker {
-
+struct RandomQuestionPicker {
+    
+    var questions: [[String: String]]
+    
+    
+    
     
     func checkRepeat() -> Int {
         
@@ -97,4 +93,11 @@ class RandomQuestionPicker {
 
 }
 
+let questions = RandomQuestionPicker(questions: [
+    ["Q": "In Ferrari F12 TDF, What does the 'TDF' stand for?", "rightAnswer": "Tour de France", "false1": "Secret Ferrari abbreviation", "false2": "Total Demon Features"],
+    ["Q": "The Ferrari 458's exhaust system was designed after what car?", "rightAnswer": "Ferrari F40", "false1": "Ferrari F430", "false2": "Ferrari F50", "false3": "Ferrari FF"],
+    ["Q": "In Ferrari 458, what does the '458' stand for?", "rightAnswer": "4.5 Litre V8", "false1": "458 horse power", "false2": "458 cars manufactured", "false3": "$458, 000"],
+    ["Q": "What hyper car did Ferrari release in 2016?", "rightAnswer": "LaFerrari Aperta", "false1": "LaFerrari", "false2": "F12 TDF", "false3": "GTC4 Lusso"],
+    ["Q": "What car was named after Ferrari's founder?", "rightAnswer": "Ferrari Enzo", "false1": "575 Maranello", "false2": "Scuderia"]
+    ])
 

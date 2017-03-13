@@ -27,9 +27,7 @@ class ViewController: UIViewController {
     
     var correctAnswers: Int = 0
     var answeredQuestions: Int = 0
-    let totalQuestions = questions.count
-    
-    var randomQuestionPicker = RandomQuestionPicker()
+    let totalQuestions = questions.questions.count
     
     var correctSound = AVAudioPlayer()
     var incorrectSound = AVAudioPlayer()
@@ -86,7 +84,7 @@ class ViewController: UIViewController {
         
         
         if (sender == answer1 || sender == answer2 || sender == answer3 || sender == answer4) {
-            if (sender?.currentTitle == questions[0]["rightAnswer"]) || (sender?.currentTitle == questions[1]["rightAnswer"]) || (sender?.currentTitle == questions[2]["rightAnswer"]) || (sender?.currentTitle == questions[3]["rightAnswer"]) || (sender?.currentTitle == questions[4]["rightAnswer"]) {
+            if (sender?.currentTitle == questions.questions[0]["rightAnswer"]) || (sender?.currentTitle == questions.questions[1]["rightAnswer"]) || (sender?.currentTitle == questions.questions[2]["rightAnswer"]) || (sender?.currentTitle == questions.questions[3]["rightAnswer"]) || (sender?.currentTitle == questions.questions[4]["rightAnswer"]) {
                 
                 correctSound.play()
                 
@@ -106,7 +104,7 @@ class ViewController: UIViewController {
                 
                 for answer in answerButtons {
                     
-                    if (answer?.currentTitle == questions[0]["rightAnswer"]) || (answer?.currentTitle == questions[1]["rightAnswer"]) || (answer?.currentTitle == questions[2]["rightAnswer"]) || (answer?.currentTitle == questions[3]["rightAnswer"]) || (answer?.currentTitle == questions[4]["rightAnswer"]) {
+                    if (answer?.currentTitle == questions.questions[0]["rightAnswer"]) || (answer?.currentTitle == questions.questions[1]["rightAnswer"]) || (answer?.currentTitle == questions.questions[2]["rightAnswer"]) || (answer?.currentTitle == questions.questions[3]["rightAnswer"]) || (answer?.currentTitle == questions.questions[4]["rightAnswer"]) {
                         
                         answer?.backgroundColor = UIColor.green
                     }
@@ -123,7 +121,7 @@ class ViewController: UIViewController {
                 
             for answer in answerButtons {
                     
-            if (answer?.currentTitle == questions[0]["rightAnswer"]) || (answer?.currentTitle == questions[1]["rightAnswer"]) || (answer?.currentTitle == questions[2]["rightAnswer"]) || (answer?.currentTitle == questions[3]["rightAnswer"]) || (answer?.currentTitle == questions[4]["rightAnswer"]) {
+            if (answer?.currentTitle == questions.questions[0]["rightAnswer"]) || (answer?.currentTitle == questions.questions[1]["rightAnswer"]) || (answer?.currentTitle == questions.questions[2]["rightAnswer"]) || (answer?.currentTitle == questions.questions[3]["rightAnswer"]) || (answer?.currentTitle == questions.questions[4]["rightAnswer"]) {
                         
                 answer?.backgroundColor = UIColor.green
             }
@@ -194,7 +192,7 @@ class ViewController: UIViewController {
         answer3.isHidden = false
         answer4.isHidden = false
         
-    randomQuestionPicker.randomQuestion(questionLabel: questionLabel, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)
+        questions.randomQuestion(questionLabel: questionLabel, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4)
         proceedQuestions.setTitle("Next Question", for: .normal)
         proceedQuestions.isHidden = true
         rightOrWrong.isHidden = true
@@ -217,9 +215,6 @@ class ViewController: UIViewController {
     
 }
 
-//var incorrectSound = AVAudioPlayer()
-
-//var correctSound = AVAudioPlayer()
 
 
 
